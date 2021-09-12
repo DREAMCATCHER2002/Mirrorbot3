@@ -1,6 +1,6 @@
 [![DREAMCATCHER](https://telegra.ph/file/92f70ce8364f6cdf3b0db.jpg)](https://youtu.be/Pk_TthHfLeE)
 
-# Slam Mirror Bot
+# DREAMCATCHER Mirror Bot
 ![GitHub Repo stars](https://img.shields.io/github/stars/SlamDevs/slam-mirrorbot?color=blue&style=flat)
 ![GitHub forks](https://img.shields.io/github/forks/SlamDevs/slam-mirrorbot?color=green&style=flat)
 ![GitHub contributors](https://img.shields.io/github/contributors/SlamDevs/slam-mirrorbot?style=flat)
