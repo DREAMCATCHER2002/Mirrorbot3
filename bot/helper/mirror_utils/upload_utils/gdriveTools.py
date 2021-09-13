@@ -407,8 +407,8 @@ class GoogleDriveHelper:
                     LOGGER.info("Deleting cloned data from Drive...")
                     msg = self.deletefile(durl)
                     LOGGER.info(f"{msg}")
-                    return "your clone has been stopped and cloned data has been deleted!", "cancelled"
-                msg += f'<b>📁 Movie Name : </b><code>{meta.get("name")}</code>\n<b>Size: </b><code>{get_readable_file_size(self.transferred_size)}</code>'
+                    return "<b>Your clone has been stopped and cloned data has been deleted! 🤔</b>", "<b>Cancelled 😁</b>"
+                msg += f'<b>📁 Movie Name : </b><code>{meta.get("name")}</code>\n<b>💽 Size : </b><code>{get_readable_file_size(self.transferred_size)}</code>'
                 msg += '\n\n<b>📦 Type : </b><code>Folder</code>'
                 msg += f'\n<b>🗂️ SubFolders : </b><code>{self.total_folders}</code>'
                 msg += f'\n<b>🗃️ Files : </b><code>{self.total_files}</code>'
@@ -587,7 +587,7 @@ class GoogleDriveHelper:
                     content += f'<b> | <a href="https://telegra.ph/{self.path[nxt_page]}">Next</a></b>'
                     nxt_page += 1
             Telegraph(access_token=telegraph_token).edit_page(path = self.path[prev_page],
-                                 title = 'DREAMCATCHER MIRROR BOT SEARCH',
+                                 title = '🔎 DREAMCATCHER MIRROR BOT SEARCH 🔍',
                                  author_name='@WhitE_DeviL09',
                                  author_url='https://t.me/white_devil09',
                                  html_content=content)
@@ -703,7 +703,7 @@ class GoogleDriveHelper:
 
         for content in self.telegraph_content :
             self.path.append(Telegraph(access_token=telegraph_token).create_page(
-                                                    title = 'DREAMCATCHER MIRROR BOT SEARCH',
+                                                    title = '🔎 DREAMCATCHER MIRROR BOT SEARCH 🔍',
                                                     author_name='@WhitE_DeviL09',
                                                     author_url='https://t.me/white_devil09',
                                                     html_content=content
@@ -736,7 +736,7 @@ class GoogleDriveHelper:
             if drive_file['mimeType'] == self.__G_DRIVE_DIR_MIME_TYPE:
                 self.gDrive_directory(**drive_file)
                 msg += f'<b>📁 Movie Name : </b><code>{name}</code>'
-                msg += f'\n<b>💽 Size : </b><code>{get_readable_file_size(self.total_bytes)}</code>'
+                msg += f'\n\n<b>💽 Size : </b><code>{get_readable_file_size(self.total_bytes)}</code>'
                 msg += '\n<b>📦 Type : </b><code>Folder</code>'
                 msg += f'\n<b>🗂️ SubFolders : </b><code>{self.total_folders}</code>'
                 msg += f'\n<b>🗃️ Files : </b><code>{self.total_files}</code>'
