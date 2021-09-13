@@ -415,17 +415,17 @@ class GoogleDriveHelper:
                 buttons = button_build.ButtonMaker()
                 if SHORTENER is not None and SHORTENER_API is not None:
                     surl = short_url(durl)
-                    buttons.buildbutton("💾 Drive Link", surl)
+                    buttons.buildbutton("💾Drive Link💾", surl)
                 else:
-                    buttons.buildbutton("💾 Drive Link", durl)
+                    buttons.buildbutton("💾Drive Link💾", durl)
                 if INDEX_URL is not None:
                     url_path = requests.utils.quote(f'{meta.get("name")}')
                     url = f'{INDEX_URL}/{url_path}/'
                     if SHORTENER is not None and SHORTENER_API is not None:
                         siurl = short_url(url)
-                        buttons.buildbutton("Index Link 🚀", siurl)
+                        buttons.buildbutton("🚀Index Link🚀", siurl)
                     else:
-                        buttons.buildbutton("Index Link 🚀", url)
+                        buttons.buildbutton("🚀Index Link🚀", url)
             else:
                 file = self.copyFile(meta.get('id'), parent_id)
                 msg += f'<b>📁 Movie Name :</b> <code>{file.get("name")}</code>'
@@ -433,9 +433,9 @@ class GoogleDriveHelper:
                 buttons = button_build.ButtonMaker()
                 if SHORTENER is not None and SHORTENER_API is not None:
                     surl = short_url(durl)
-                    buttons.buildbutton("💾 Drive Link", surl)
+                    buttons.buildbutton("💾Drive Link💾", surl)
                 else:
-                    buttons.buildbutton("💾 Drive Link", durl)
+                    buttons.buildbutton("💾Drive Link💾", durl)
                 try:
                     typ = file.get('mimeType')
                 except:
@@ -451,14 +451,14 @@ class GoogleDriveHelper:
                     urls = f'{INDEX_URL}/{url_path}?a=view'
                     if SHORTENER is not None and SHORTENER_API is not None:
                         siurl = short_url(url)
-                        buttons.buildbutton("Index Link 🚀", siurl)
+                        buttons.buildbutton("🚀Index Link🚀", siurl)
                         if VIEW_LINK:
                             siurls = short_url(urls)
-                            buttons.buildbutton("View Link 🌐", siurls)
+                            buttons.buildbutton("🌐View Link🌐", siurls)
                     else:
-                        buttons.buildbutton("Index Link 🚀", url)
+                        buttons.buildbutton("🚀Index Link🚀", url)
                         if VIEW_LINK:
-                            buttons.buildbutton("View Link 🌐", urls)
+                            buttons.buildbutton("🌐View Link🌐", urls)
             if BUTTON_FOUR_NAME is not None and BUTTON_FOUR_URL is not None:
                 buttons.buildbutton(f"{BUTTON_FOUR_NAME}", f"{BUTTON_FOUR_URL}")
             if BUTTON_FIVE_NAME is not None and BUTTON_FIVE_URL is not None:
@@ -473,8 +473,8 @@ class GoogleDriveHelper:
             LOGGER.error(err)
             if "<b>User rate limit exceeded 😃</b>" in str(err):
                 msg = "<b>User rate limit exceeded 😀</b>"
-            elif "<b>File not found 🙄</b>" in str(err):
-                msg = "<b>File not found 🙄</b>"
+            elif "<b>❌ File not found 🙄</b>" in str(err):
+                msg = "<b>❌ File not found 🙄</b>"
             else:
                 msg = f"<b>Error 😷</b>\n{err}"
             return msg, ""
@@ -757,7 +757,7 @@ class GoogleDriveHelper:
         except Exception as err:
             err = str(err).replace('>', '').replace('<', '')
             LOGGER.error(err)
-            msg = "<b>File not found 🙄</b>" if "File not found" in str(err) else f"<b>Error 😷</b>\n{err}"
+            msg = "<b>❌ File not found 🙄</b>" if "<b>❌ File not found 🙄</b>" in str(err) else f"<b>Error 😷</b>\n{err}"
             return msg
         return msg
 
@@ -808,7 +808,7 @@ class GoogleDriveHelper:
         except Exception as err:
             err = str(err).replace('>', '').replace('<', '')
             LOGGER.error(err)
-            msg = "<b>File not found 🙄</b>" if "<b>File not found 🙄</b>" in str(err) else f"<b>Error 😷</b>\n{err}"
+            msg = "<b>❌ File not found 🙄</b>" if "<b>❌ File not found 🙄</b>" in str(err) else f"<b>Error 😷</b>\n{err}"
             return msg, "", "", ""
         return "", clonesize, name, files
 
@@ -922,10 +922,10 @@ class GoogleDriveHelper:
     def cancel_download(self):
         self.is_cancelled = True
         if self.is_downloading:
-            LOGGER.info(f"Cancelling Download: {self.name}")
-            self.__listener.onDownloadError('Download stopped by user!')
+            LOGGER.info(f"<b>Cancelling Download: {self.name} 🤔</b>")
+            self.__listener.onDownloadError('<b>Download Stopped By User! 🤗</b>')
         elif self.is_cloning:
-            LOGGER.info(f"Cancelling Clone: {self.name}")
+            LOGGER.info(f"<b>Cancelling Clone: {self.name} 🤔</b>")
         elif self.is_uploading:
-            LOGGER.info(f"Cancelling Upload: {self.name}")
-            self.__listener.onUploadError('your upload has been stopped and uploaded data has been deleted!')
+            LOGGER.info(f"<b>Cancelling Upload : {self.name} 🤔</b>")
+            self.__listener.onUploadError('<b>Your Upload Has Been Stopped and Uploaded Data Has Been Deleted! 😁</b>')
