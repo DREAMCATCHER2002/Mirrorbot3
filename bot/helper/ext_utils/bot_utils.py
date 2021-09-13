@@ -132,7 +132,7 @@ def get_readable_message():
             INDEX += 1
             if INDEX > COUNT:
                 msg += f"<b>📁 Movie Name :</b> <code>{download.name()}</code>"
-                msg += f"\n<b>⏳ Status :</b> <i>{download.status()}</i>"
+                msg += f"\n\n<b>⏳ Status :</b> <i>{download.status()}</i>"
                 if download.status() not in [
                     MirrorStatus.STATUS_ARCHIVING,
                     MirrorStatus.STATUS_EXTRACTING,
