@@ -151,7 +151,7 @@ class MirrorListener(listeners.MirrorListeners):
         with download_dict_lock:
             msg = f'<b>📁 Movie Name : </b><code>{download_dict[self.uid].name()}</code>\n\n<b>💽 Size : </b><code>{size}</code>'
             if os.path.isdir(f'{DOWNLOAD_DIR}/{self.uid}/{download_dict[self.uid].name()}'):
-                msg += '\n<b>📦 Type : </b><code>Folder</code>'
+                msg += '\n\n<b>📦 Type : </b><code>Folder</code>'
                 msg += f'\n<b>🗂️ SubFolders : </b><code>{folders}</code>'
                 msg += f'\n<b>🗃️ Files : </b><code>{files}</code>'
             else:
@@ -196,7 +196,7 @@ class MirrorListener(listeners.MirrorListeners):
             else:
                 uname = f'<a href="tg://user?id={self.message.from_user.id}">{self.message.from_user.first_name}</a>'
             if uname is not None:
-                msg += f'\n\n<b>👤 𝐑𝐞𝐪𝐮𝐞𝐬𝐭 𝐁𝐲 : {uname}</b>\n\n💫 𝙋𝙤𝙬𝙚𝙧𝙚𝙙 𝘽𝙮 : 🤸𝙒𝙝𝙞𝙩𝙀_𝘿𝙚𝙫𝙞𝙇𝟬𝟵'
+                msg += f'\n\n<b>👤 𝐑𝐞𝐪𝐮𝐞𝐬𝐭 𝐁𝐲 : {uname}</b>\n\n💫 𝙋𝙤𝙬𝙚𝙧𝙚𝙙 𝘽𝙮 : 𝙒𝙝𝙞𝙩𝙀_𝘿𝙚𝙫𝙞𝙇𝟬𝟵'
             try:
                 fs_utils.clean_download(download_dict[self.uid].path())
             except FileNotFoundError:
@@ -306,7 +306,7 @@ def _mirror(bot, update, isTar=False, extract=False, isZip=False, isQbit=False):
                 link = file.get_file().file_path
 
     if not bot_utils.is_url(link) and not bot_utils.is_magnet(link):
-        sendMessage('📥 <b>No Download Source Provided 🤒</b>', bot, update)
+        sendMessage('<b>No Download Source Provided 🤒</b>', bot, update)
         return
     if not os.path.exists(link) and not bot_utils.is_mega_link(link) and not bot_utils.is_gdrive_link(link) and not bot_utils.is_magnet(link):
         try:
