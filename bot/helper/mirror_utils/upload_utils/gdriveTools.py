@@ -588,7 +588,7 @@ class GoogleDriveHelper:
                     nxt_page += 1
             Telegraph(access_token=telegraph_token).edit_page(path = self.path[prev_page],
                                  title = '🔎 DREAMCATCHER MIRROR BOT SEARCH 🔍',
-                                 author_name='@WhitE_DeviL09',
+                                 author_name='<b>@WhitE_DeviL09</b>',
                                  author_url='https://t.me/white_devil09',
                                  html_content=content)
         return
@@ -704,7 +704,7 @@ class GoogleDriveHelper:
         for content in self.telegraph_content :
             self.path.append(Telegraph(access_token=telegraph_token).create_page(
                                                     title = '🔎 DREAMCATCHER MIRROR BOT SEARCH 🔍',
-                                                    author_name='@WhitE_DeviL09',
+                                                    author_name='<b>@WhitE_DeviL09</b>',
                                                     author_url='https://t.me/white_devil09',
                                                     html_content=content
                                                     )['path'])
