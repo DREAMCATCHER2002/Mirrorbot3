@@ -56,7 +56,7 @@ def start(update, context):
         sendMarkup(start_string, context.bot, update, reply_markup)
     else:
         sendMarkup(
-            '<b>📥😎 Oops! Not a Authorized User</b>\n<b>Please Deploy Your Own MirrorBot 🤒</b>.',
+            '<b>😎 Oops! Not a Authorized User</b>\n<b>Please Deploy Your Own MirrorBot 🤒</b>.',
             context.bot,
             update,
             reply_markup,
