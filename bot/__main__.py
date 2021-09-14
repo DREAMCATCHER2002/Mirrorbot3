@@ -45,18 +45,18 @@ def stats(update, context):
 
 def start(update, context):
     buttons = button_build.ButtonMaker()
-    buttons.buildbutton("💫 𝐑𝐈𝐏𝐎", "https://github.com/SlamDevs/slam-mirrorbot")
-    buttons.buildbutton("𝐎𝐖𝐍𝐄𝐑 🤸", "https://t.me/white_devil09")
+    buttons.buildbutton("🤖 𝐑𝐈𝐏𝐎", "https://github.com/SlamDevs/slam-mirrorbot")
+    buttons.buildbutton("𝐎𝐖𝐍𝐄𝐑 👤", "https://t.me/white_devil09")
     reply_markup = InlineKeyboardMarkup(buttons.build_menu(2))
     if CustomFilters.authorized_user(update) or CustomFilters.authorized_chat(update):
         start_string = f'''
 🤖 <b>This bot Can Mirror all Your Links to Google Drive!</b>
-<b>Type</b> /{BotCommands.HelpCommand} <b>to Get a List of Available Commands 🤒</b>
+<b>Type /{BotCommands.HelpCommand} to Get a List of Available Commands! 🤒</b>
 '''
         sendMarkup(start_string, context.bot, update, reply_markup)
     else:
         sendMarkup(
-            '<b>Oops! Not a Authorized User 🤒</b>\n<b>Please Deploy Your Own MirrorBot</b>.',
+            '<b>📥😎 Oops! Not a Authorized User</b>\n<b>Please Deploy Your Own MirrorBot 🤒</b>.',
             context.bot,
             update,
             reply_markup,
@@ -213,7 +213,7 @@ def main():
     if os.path.isfile(".restartmsg"):
         with open(".restartmsg") as f:
             chat_id, msg_id = map(int, f)
-        bot.edit_message_text("✅ <b>Restarted Successfully!</b>", chat_id, msg_id)
+        bot.edit_message_text("✅ Restarted Successfully!", chat_id, msg_id)
         os.remove(".restartmsg")
     bot.set_my_commands(botcmds)
 
